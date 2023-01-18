@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import * as dotenv from "dotenv";
 dotenv.config();
 import Product from "../models/product.js";
@@ -8,7 +9,7 @@ const connectionString = process.env.MONGO_URI;
 const start = async () => {
   try {
     await connectDB(connectionString);
-    console.log("connected to DB, ready to seed data");
+    console.log("connected to DB, ready to seed");
     console.log("clearing the database...");
     await Product.deleteMany({});
     console.log("creating new product...");
@@ -19,4 +20,6 @@ const start = async () => {
   }
 };
 
-start();
+start().then(() => {
+  mongoose.connection.close();
+});
