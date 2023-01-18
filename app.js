@@ -8,8 +8,7 @@ import errorHandler from "./middleware/error-handler.js";
 import productsRouter from "./routes/products.js";
 
 const PORT = process.env.PORT || 3000;
-const connectionString = process.env.MONGO_DB_CONNECTION;
-
+const connectionString = process.env.MONGO_URI;
 // middleware
 app.use(express.json());
 
@@ -19,6 +18,7 @@ app.get("/", (req, res) => {
   res.send(`<h1>Store API</h1> <a href="/api/v1/products">Products</a>`);
 });
 
+app.use("/api/v1/products");
 // products route
 app.get("/api/v1/products", (req, res) => {
   res.send(`<h1>Products</h1> <a href="/">Back</a>`);
