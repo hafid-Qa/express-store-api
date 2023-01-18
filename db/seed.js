@@ -15,11 +15,11 @@ const start = async () => {
     console.log("creating new product...");
     await Product.create(jsonProducts);
     console.log(`${jsonProducts.length} products created`);
+    process.exit(0);
   } catch (error) {
     console.log(error);
+    process.exit(1);
   }
 };
 
-start().then(() => {
-  mongoose.connection.close();
-});
+start();
