@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
   res.send(`<h1>Store API</h1> <a href="/api/v1/products">Products</a>`);
 });
 
-app.use("/api/v1/products");
+app.use("/api/v1/products", productsRouter);
 // products route
 app.get("/api/v1/products", (req, res) => {
   res.send(`<h1>Products</h1> <a href="/">Back</a>`);
