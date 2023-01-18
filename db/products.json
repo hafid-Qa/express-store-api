@@ -2,130 +2,130 @@
   {
     "name": "accent chair",
     "price": 25,
-    "company": "marcos",
+    "company": "AT",
     "rating": 4
   },
   {
     "name": "albany sectional",
     "price": 109,
-    "company": "liddy",
+    "company": "QR",
     "rating": 5
   },
   {
     "name": "albany table",
     "price": 309,
-    "company": "liddy",
+    "company": "QR",
     "rating": 4.9
   },
   {
     "name": "armchair",
     "price": 125,
-    "company": "marcos",
+    "company": "AT",
     "rating": 4.8
   },
   {
     "name": "bar stool",
     "price": 40,
-    "company": "liddy",
+    "company": "QR",
     "rating": 4.6
   },
   {
     "name": "dining table",
     "price": 42,
-    "company": "ikea",
+    "company": "EK",
     "rating": 4.55
   },
   {
     "name": "emperor bed",
     "price": 23,
-    "company": "ikea"
+    "company": "EK"
   },
   {
     "name": "entertainment center",
     "price": 59,
     "featured": true,
-    "company": "caressa"
+    "company": "EY"
   },
   {
     "name": "high-back bench",
     "price": 39,
     "featured": true,
-    "company": "ikea"
+    "company": "EK"
   },
 
   {
     "name": "leather sofa",
     "price": 99,
-    "company": "caressa"
+    "company": "EY"
   },
   {
     "name": "modern bookshelf",
     "price": 31,
     "featured": true,
-    "company": "caressa"
+    "company": "EY"
   },
   {
     "name": "modern poster",
     "price": 30,
-    "company": "liddy"
+    "company": "QR"
   },
   {
     "name": "shelf",
     "price": 30,
-    "company": "ikea"
+    "company": "EK"
   },
   {
     "name": "simple chair",
     "price": 109,
-    "company": "liddy"
+    "company": "QR"
   },
   {
     "name": "sofa set",
     "price": 129,
-    "company": "marcos"
+    "company": "AT"
   },
   {
     "name": "suede armchair",
     "price": 15,
-    "company": "caressa"
+    "company": "EY"
   },
   {
     "name": "utopia sofa",
     "price": 79,
     "featured": true,
-    "company": "liddy"
+    "company": "QR"
   },
   {
     "name": "vase table",
     "price": 120,
     "featured": true,
-    "company": "marcos"
+    "company": "AT"
   },
   {
     "name": "wooden bed",
     "price": 25,
-    "company": "ikea"
+    "company": "EK"
   },
   {
     "name": "wooden desk",
     "price": 15,
-    "company": "ikea"
+    "company": "EK"
   },
   {
     "name": "wooden desk",
     "price": 40,
-    "company": "ikea"
+    "company": "EK"
   },
   {
     "name": "wooden table",
     "price": 23,
     "featured": true,
-    "company": "caressa"
+    "company": "EY"
   },
   {
     "name": "a first wooden table",
     "price": 23,
     "featured": true,
-    "company": "caressa"
+    "company": "EY"
   }
 ]
