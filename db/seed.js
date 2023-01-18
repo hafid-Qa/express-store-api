@@ -8,8 +8,8 @@ const connectionString = process.env.MONGO_URI;
 const start = async () => {
   try {
     await connectDB(connectionString);
-    console.log("connected to DB");
-    console.log("clearing DB...");
+    console.log("connected to DB, ready to seed data");
+    console.log("clearing the database...");
     await Product.deleteMany({});
     console.log("creating new product...");
     await Product.create(jsonProducts);
