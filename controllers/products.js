@@ -1,7 +1,7 @@
 import Product from "../models/product.js";
 
 const getAllProducts = async (req, res) => {
-  const { featured, name, company, sort, fields } = req.query;
+  const { featured, name, company, sort, fields, price } = req.query;
   const queryObject = {};
   if (featured) {
     queryObject.featured = featured === "true" ? true : false;
@@ -11,6 +11,9 @@ const getAllProducts = async (req, res) => {
   }
   if (name) {
     queryObject.name = { $regex: name, $options: "i" };
+  }
+  if (price) {
+    queryObject.price = { price: { $gt: price , $lt: price } };
   }
   console.log(queryObject);
   let result = Product.find(queryObject);
@@ -31,7 +34,7 @@ const getAllProducts = async (req, res) => {
   const skip = (page - 1) * limit;
 
   result = result.skip(skip).limit(limit);
-  
+
   const products = await result;
   res.status(200).json({
     numberOfProducts: products.length,
