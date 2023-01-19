@@ -1,12 +1,12 @@
 import * as dotenv from "dotenv";
 dotenv.config();
 import pkg from "lodash";
+const { sample, times } = pkg;
 import { faker } from "@faker-js/faker";
 import Product from "../models/product.js";
 import connectDB from "./connect.js";
 import jsonProducts from "./products.json" assert { type: "json" };
 const connectionString = process.env.MONGO_URI;
-const { sample, times } = pkg;
 const start = async () => {
   try {
     await connectDB(connectionString);
