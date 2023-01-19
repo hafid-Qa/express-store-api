@@ -1,7 +1,7 @@
 import Product from "../models/product.js";
 
 const getAllProducts = async (req, res) => {
-  const { featured, name, company, sort } = req.query;
+  const { featured, name, company, sort, fields } = req.query;
   const queryObject = {};
   if (featured) {
     queryObject.featured = featured === "true" ? true : false;
@@ -20,6 +20,10 @@ const getAllProducts = async (req, res) => {
     result = result.sort(sortList);
   } else {
     result = result.sort("created_at");
+  }
+  if (fields) {
+    const fieldsList = fields.split(",").join(" ");
+    result = result.select(fieldsList);
   }
   const products = await result;
   res.status(200).json({
