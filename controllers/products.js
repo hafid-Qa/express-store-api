@@ -1,7 +1,7 @@
 import Product from "../models/product.js";
 
 const getAllProducts = async (req, res) => {
-  const { featured, rating, name, price, company } = req.query;
+  const { featured, name, company, sort } = req.query;
   const queryObject = {};
   if (featured) {
     queryObject.featured = featured === "true" ? true : false;
@@ -13,14 +13,22 @@ const getAllProducts = async (req, res) => {
     queryObject.name = { $regex: name, $options: "i" };
   }
   console.log(queryObject);
-  const products = await Product.find(queryObject);
+  let result = Product.find(queryObject);
+  if (sort) {
+    const sortList = sort.split(",").join(" ");
+    console.log(sortList);
+    result = result.sort(sortList);
+  } else {
+    result = result.sort("created_at");
+  }
+  const products = await result;
   res.status(200).json({
     numberOfProducts: products.length,
     products,
   });
 };
 const getAllProductsStatic = async (req, res) => {
-  const products = await Product.find({});
+  const products = await Product.find({}).sort("-name");
   res.status(200).json({ numberOfProducts: products.length, products });
 };
 
