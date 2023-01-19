@@ -10,7 +10,7 @@ const getAllProducts = async (req, res) => {
     queryObject.company = company.toUpperCase();
   }
   if (name) {
-    queryObject.name = name.toLowerCase();
+    queryObject.name = { $regex: name, $options: "i" };
   }
   console.log(queryObject);
   const products = await Product.find(queryObject);
