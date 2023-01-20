@@ -1,7 +1,7 @@
 import Product from "../models/product.js";
 
 const getAllProducts = async (req, res) => {
-  const { featured, name, company, sort, fields, price } = req.query;
+  const { featured, name, company, sort, fields, numericFilters } = req.query;
   const queryObject = {};
   if (featured) {
     queryObject.featured = featured === "true" ? true : false;
@@ -12,8 +12,20 @@ const getAllProducts = async (req, res) => {
   if (name) {
     queryObject.name = { $regex: name, $options: "i" };
   }
-  if (price) {
-    queryObject.price = { price: { $gt: price , $lt: price } };
+  if (numericFilters) {
+    const operatorMap = {
+      ">": "$gt",
+      ">=": "$gte",
+      "=": "$eq",
+      "<": "$lt",
+      "<=": "$lte",
+    };
+    const regex = /\b(>|>=|=|<|<=)\b/g;
+    let filters = numericFilters.replace(
+      regex,
+      (match) => `-${operatorMap[match]}-`
+    );
+    queryObject.numericFilters = filters;
   }
   console.log(queryObject);
   let result = Product.find(queryObject);
