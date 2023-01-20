@@ -59,9 +59,5 @@ const getAllProducts = async (req, res) => {
     products,
   });
 };
-const getAllProductsStatic = async (req, res) => {
-  const products = await Product.find({}).sort("-name");
-  res.status(200).json({ numberOfProducts: products.length, products });
-};
 
-export { getAllProducts, getAllProductsStatic };
+export { getAllProducts };
