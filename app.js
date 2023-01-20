@@ -1,5 +1,5 @@
 import express from "express";
-import expressAsyncErrors from "express-async-errors";
+import "express-async-errors";
 const app = express();
 import * as dotenv from "dotenv";
 dotenv.config();
